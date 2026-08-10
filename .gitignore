@@ -1,1 +1,3 @@
 LOCAL_NOTES.md
+data/
+.pycache/
