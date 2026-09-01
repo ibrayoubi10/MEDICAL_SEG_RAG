@@ -97,3 +97,6 @@ Launch the local web interface:
 Then open the local URL shown by Streamlit and ask your question directly in the
 browser. The app uses Ollama locally and always generates an answer from the
 retrieved articles.
+
+# Author
+Ibrahim Al Ayoubi
