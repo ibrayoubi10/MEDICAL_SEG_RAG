@@ -1,3 +1,7 @@
 LOCAL_NOTES.md
 data/
+notebooks/
 .pycache/
+.venv/
+__pycache__/
+.DS_Store
