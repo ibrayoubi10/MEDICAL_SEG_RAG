@@ -1,4 +1,4 @@
-# Arxiv_RAG
+# MEDICAL_SEG_RAG
 
 My first RAG pipeline project.
 
