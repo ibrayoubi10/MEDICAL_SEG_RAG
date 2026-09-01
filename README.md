@@ -55,15 +55,45 @@ embedding function. Later, this can be swapped for a stronger embedding model.
 Ask a question over the Chroma corpus:
 
 ```bash
-.venv/bin/python rag_answer.py "Quels papiers parlent de U-Net pour la segmentation medicale ?"
+.venv/bin/python rag_answer.py "Which papers discuss U-Net for medical segmentation?"
 ```
 
-If `OPENAI_API_KEY` is configured, the script retrieves relevant papers and asks an
-LLM to answer with source labels. Without an API key, it skips generation and prints
-the retrieved sources, which is useful for testing the retrieval step.
+By default, the script retrieves relevant papers and asks your local Ollama model
+to answer with exact article-title citations:
+
+```bash
+.venv/bin/python rag_answer.py "Which papers discuss U-Net for medical segmentation?" --provider ollama
+```
+
+The default Ollama model is `llama3:latest`. You can change it with `--model`:
+
+```bash
+.venv/bin/python rag_answer.py "Which papers discuss U-Net?" --provider ollama --model llama3:latest
+```
+
+Without any LLM call, it can still print the retrieved sources, which is useful
+for testing the retrieval step.
 
 To test retrieval only:
 
 ```bash
 .venv/bin/python rag_answer.py "data augmentation for medical image segmentation" --retrieval-only
 ```
+
+## Graphic Interface
+
+Install or update the project dependencies:
+
+```bash
+.venv/bin/python -m pip install -r requirements.txt
+```
+
+Launch the local web interface:
+
+```bash
+.venv/bin/streamlit run app.py
+```
+
+Then open the local URL shown by Streamlit and ask your question directly in the
+browser. The app uses Ollama locally and always generates an answer from the
+retrieved articles.
